@@ -1,0 +1,22 @@
+{
+  "name": "vue-project-template",
+  "version": "1.0.0",
+  "main": "./generator/index.js",
+  "description": "a simple vue-cli template",
+  "author": {
+    "name": "zhangchaoyang",
+    "email": "zhangchaoyang805@gmail.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chaoyang805/vue-project-template.git"
+  },
+  "keywords": [
+    "vuejs",
+    "vue cli",
+    "vue template",
+    "vue preset"
+  ],
+  "dependencies": {},
+  "homepage": "https://github.com/chaoyang805/vue-project-template#readme"
+}

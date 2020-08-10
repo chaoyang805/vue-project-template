@@ -1,0 +1,131 @@
+@import './variable.scss';
+@import './mixin.scss';
+
+body, html {
+  line-height: 1;
+  font-family: 'Microsoft YaHei', '微软雅黑', 'PingFang SC', 'STHeitiSC-Light', 'Helvetica-Light', arial, sans-serif, 'Droid Sans Fallback';
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: $color-background;
+  color: $color-text;
+  box-sizing: border-box;
+}
+
+div {
+  box-sizing: border-box;
+}
+
+.button-outline {
+  @include reset-button();
+  border: 1px solid $color-outline-button-border;
+  border-radius: $radius-button;
+  background: $color-outline-button-fill;
+  color: $color-text-outline-button;
+
+  &:hover, &:active {
+    border: none;
+    background: $color-outline-button-fill-active;
+    color: $color-text-outline-active;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    font-size: $font-size-medium;
+    font-weight: 500;
+    background-color: rgba(14, 98, 224, 0.2);
+    color: rgba(14, 98, 224, 0.6);
+    border: 1px solid #095ed2;
+  }
+}
+
+.button-outline-destructive {
+  @include reset-button();
+  border: 1px solid $color-outline-button-border-destructive;
+  border-radius: $radius-button;
+  background: $color-outline-button-fill-destructive;
+  color: $color-text-outline-button-destructive;
+
+  &:hover, &:active {
+    border: none;
+    background: $color-outline-button-fill-destructive-active;
+    color: $color-text-outline-active;
+  }
+}
+
+.button-fill-normal {
+  @include reset-button();
+  border-radius: $radius-button;
+  color: $color-text;
+  background: $color-fill-button-bg;
+
+  &:hover, &:active {
+    background: $color-fill-button-active-bg;
+  }
+}
+
+.button-fill-destructive {
+  @include reset-button();
+  border-radius: $radius-button;
+  color: $color-text;
+  background: $color-input-error;
+
+  &:hover, &:active {
+    background: #C03333;
+  }
+}
+
+.auto-scrollbar {
+  //正常状态设置 overflow 为 hidden 隐藏滚动条
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+
+  &:hover {
+    // hover 时，显示滚动条
+    overflow: auto !important;
+  }
+
+}
+
+.auto-scrollbar-x {
+  // 正常状态设置 overflow 为 hidden 隐藏滚动条
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+
+  &:hover {
+    // hover 时，显示滚动条
+    overflow-x: auto !important;
+  }
+}
+
+.auto-scrollbar-y {
+  // 正常状态设置 overflow 为 hidden 隐藏滚动条
+  overflow-y: hidden !important;
+  overflow-x: hidden !important;
+
+  &:hover {
+    // hover 时，显示滚动条
+    overflow-y: auto !important;
+  }
+}
+
+$scrollbar-width: 8px;
+
+.custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: $scrollbar-width;
+    height: $scrollbar-width;
+  }
+
+  &::-webkit-scrollbar-track-piece {
+    background-color: rgba(14, 98, 224, .4);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(14, 98, 224, .8);
+  }
+
+  &::-webkit-scrollbar-corner {
+    background-color: rgba(14, 98, 224, .4);
+  }
+}

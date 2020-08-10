@@ -1,0 +1,6 @@
+/wwwroot/
+src/grpc/
+node_modules
+/public/
+vue.config.js
+src/assets

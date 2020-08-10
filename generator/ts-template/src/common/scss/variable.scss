@@ -1,0 +1,36 @@
+$color-background: #fff;
+$color-theme: rgb(14, 98, 224);
+$color-text: #fff;
+$color-text-d: rgba(255, 255, 255, 0.3);
+$color-text-l: rgba(255, 255, 255, 0.5);
+$color-text-ll: rgba(255, 255, 255, 0.8);
+$color-text-form: rgb(130, 149, 197);
+$color-text-form-l: rgba(130, 149, 197, 0.3);
+
+$color-input-error: #EF4545;
+
+$color-outline-button-fill: rgba(14, 98, 224, 0.2);
+$color-outline-button-border: $color-theme;
+$color-outline-button-fill-active: $color-theme;
+
+$color-outline-button-border-destructive: $color-input-error;
+$color-outline-button-fill-destructive: rgba(239, 69, 69, .2);
+$color-outline-button-fill-destructive-active: $color-input-error;
+
+$radius-button: 4px;
+
+$color-text-outline-button: #32DDFF;
+$color-text-outline-active: $color-text;
+$color-text-outline-button-destructive: $color-input-error;
+
+$color-fill-button-bg: $color-theme;
+$color-fill-button-active-bg: #064FBD;
+
+$color-success: #33C679;
+// 字体规范定义
+$font-size-small-s: 10px;
+$font-size-small: 12px;
+$font-size-medium: 14px;
+$font-size-medium-x: 16px;
+$font-size-large: 18px;
+$font-size-large-x: 22px;

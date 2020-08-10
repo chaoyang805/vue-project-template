@@ -1,0 +1,20 @@
+{
+  "useConfigFiles": true,
+  "packageManager": "yarn",
+  "cssPreprocessor": "node-sass",
+  "router": false,
+  "vuex": false,
+  "routerHistoryMode": false,
+  "useTaobaoRegistry": true,
+  "plugins": {
+    "@vue/cli-plugin-typescript": {
+      "classComponent": false
+    },
+    "@vue/cli-plugin-eslint": {
+      "config": "airbnb",
+      "lintOn": [
+        "save"
+      ]
+    }
+  }
+}
