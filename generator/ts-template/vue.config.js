@@ -1,4 +1,5 @@
 const path = require('path')
+const merge = require('webpack-merge')
 const devServer = {}
 if (process.env.NODE_ENV === 'development') {
   const serverHost = process.env.VUE_APP_SERVER_HOST
@@ -58,11 +59,24 @@ module.exports = {
     configElementUIImports(config)
 <%_ } _%>
   },
-  configureWebpack: {
-    resolve: {
-      extensions: ['.ts', '.js', '.vue', '.scss', '.json'],
-      alias: {
-        '@': path.resolve('src')
+  configureWebpack: (config) => {
+    merge(config, {
+      resolve: {
+        extensions: ['.ts', '.js', '.vue', '.scss', '.json'],
+        alias: {
+          '@': path.resolve('src')
+        }
+      }
+    })
+    if (process.env.NODE_ENV === 'development') {
+      config.devtool = 'eval-source-map'
+      config.output.devtoolFallbackModuleFilenameTemplate = 'webpack:///[resource-path]?[hash]'
+      config.output.devtoolModuleFilenameTemplate = info => {
+        const isVue = info.resourcePath.math(/\.vue$/)
+        const isScript = info.identifier.math(/type=script/)
+        return isVue && !isScript
+          ? `webpack-generated:///${info.resourcePath}?${info.hash}`
+          : `webpack-vue:///${info.resourcePath}`
       }
     }
   },

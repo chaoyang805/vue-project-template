@@ -51,7 +51,8 @@ module.exports = (api, options, rootOptions) => {
       'svg-inline-loader': '^0.8.2',
       'typescript': '^3.9.3',
       'vue-cli-plugin-dll': '^1.1.12',
-      'vue-template-compiler': '^2.6.11'
+      'vue-template-compiler': '^2.6.11',
+      'webpack-merge': '^4.2.2'
     }
   })
 
