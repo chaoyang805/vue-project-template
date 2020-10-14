@@ -15,49 +15,23 @@ if (process.env.NODE_ENV === 'development') {
       `在项目根目录创建 .env.development.local 文件，并指定 Backend 的接口地址，例如:VUE_APP_SERVER_HOST=127.0.0.1:8081\n`)
   }
 }
-<%_ if (options.elementUIUsage === 'on-demand') { _%>
-
-const tsImportPluginFactory = require('ts-import-plugin')
-const camel2Dash = require('camel-2-dash')
-
-const configElementUIImports = (config) => {
-  config.module
-    .rule('ts')
-    .use('ts-loader')
-    .tap(options => {
-      // eslint-disable-next-line no-param-reassign
-      options = {
-        ...options,
-        transpileOnly: true,
-        compilerOptions: {
-          module: 'es2015'
-        },
-        getCustomTransformers: () => ({
-          before: [
-            tsImportPluginFactory({
-              libraryName: 'element-ui',
-              libraryDirectory: 'lib',
-              camel2DashComponentName: true,
-              style: p => path.join(
-                'element-ui',
-                'lib', 'theme-chalk',
-                `${camel2Dash(path.basename(p, '.js'))}.css`
-              )
-            })
-          ]
-        })
-      }
-      return options
-    })
-}
-<%_ } _%>
 
 module.exports = {
   chainWebpack(config) {
-    config.plugins.delete('fork-ts-checker')
-<%_ if (options.elementUIUsage === 'on-demand') { _%>
-    configElementUIImports(config)
-<%_ } _%>
+    config.externals({ phaser: 'Phaser' })
+    if (process.env.NODE_ENV === 'production') {
+      config
+        .optimization
+        .minimizer('terser')
+        .tap((args) => {
+          args[0].terserOptions.output =
+            Object.assign({}, args[0].terserOptions.output, {
+              comments: false
+            })
+          return args
+        })
+        .end()
+    }
   },
   configureWebpack: (config) => {
     merge(config, {
@@ -72,8 +46,8 @@ module.exports = {
       config.devtool = 'eval-source-map'
       config.output.devtoolFallbackModuleFilenameTemplate = 'webpack:///[resource-path]?[hash]'
       config.output.devtoolModuleFilenameTemplate = info => {
-        const isVue = info.resourcePath.math(/\.vue$/)
-        const isScript = info.identifier.math(/type=script/)
+        const isVue = info.resourcePath.match(/\.vue$/)
+        const isScript = info.identifier.match(/type=script/)
         return isVue && !isScript
           ? `webpack-generated:///${info.resourcePath}?${info.hash}`
           : `webpack-vue:///${info.resourcePath}`

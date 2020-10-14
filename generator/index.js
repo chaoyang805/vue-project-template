@@ -21,18 +21,19 @@ module.exports = (api, options, rootOptions) => {
   api.extendPackage({
     dependencies: {
       '@vue/composition-api': '^0.5.0',
+      'core-js': '^3.6.5',
       'vue': '^2.6.11',
       'vue-router': '^3.2.0',
       'vuex': '^3.4.0',
       'vuex-composition-helpers': '^1.0.18',
-      'lodash': '^4.17.15',
+      'lodash-es': '^4.17.15',
       'number-precision': '^1.5.0',
       'grpc-web': '^1.2.0',
       'google-protobuf': '^3.12.2'
     },
     devDependencies: {
       '@types/google-protobuf': '^3.7.2',
-      '@types/lodash': '^4.14.136',
+      '@types/lodash-es': '^4.14.136',
       '@types/node': '^14.0.11',
       '@typescript-eslint/eslint-plugin': '^2.33.0',
       '@typescript-eslint/parser': '^2.33.0',
@@ -40,6 +41,7 @@ module.exports = (api, options, rootOptions) => {
       '@vue/cli-plugin-router': '~4.5.0',
       '@vue/cli-plugin-typescript': '~4.5.0',
       '@vue/cli-plugin-vuex': '~4.5.0',
+      '@vue/cli-plugin-babel': '~4.5.0',
       '@vue/cli-service': '~4.5.0',
       '@vue/eslint-config-airbnb': '^5.0.2',
       '@vue/eslint-config-typescript': '^5.0.2',
@@ -52,7 +54,6 @@ module.exports = (api, options, rootOptions) => {
       'typescript': '^3.9.3',
       'vue-cli-plugin-dll': '^1.1.12',
       'vue-template-compiler': '^2.6.11',
-      'webpack-merge': '^4.2.2'
     }
   })
 
