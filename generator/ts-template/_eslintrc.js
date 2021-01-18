@@ -6,11 +6,14 @@ module.exports = {
   extends: [
     'plugin:vue/essential',
     '@vue/airbnb',
-    '@vue/typescript/recommended'
+    '@vue/typescript/recommended',
+    'prettier/@typescript-eslint',
+    'plugin:prettier/recommended'
   ],
   parserOptions: {
     ecmaVersion: 2020
   },
+  plugins: ['prettier'],
   rules: {
     quotes: 'off',
     semi: 'off',
@@ -43,6 +46,7 @@ module.exports = {
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
     '@typescript-eslint/no-use-before-define': 'off',
-    '@typescript-eslint/ban-ts-ignore': 'off'
+    '@typescript-eslint/ban-ts-ignore': 'off',
+    'prettier/prettier': ['error', { singleQuote: true }],
   }
 }
